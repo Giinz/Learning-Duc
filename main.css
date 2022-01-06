@@ -1,0 +1,230 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+    line-height: 1.15;
+}
+.Section1{
+    position: fixed;
+    width: 100%;
+    padding: 30px 0;
+    display: block;
+    box-shadow: 0 4px 4px rgb(0 0 0 / 4%);
+    background: #fff;
+    z-index: 9999;
+}
+.Section1__Container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1170px;
+    padding: 0 15px;
+    margin:0 auto;
+    min-height: auto;
+}
+.Section1__Header{
+    display: block;
+}
+.Section1__Header-Navbar{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    list-style: none;
+}
+.Section1__Header-Text{
+    font-size: 12px;
+    color: #828282;
+    margin: 0 10px 0 -20px;
+}
+.Section1__Header-NavItem{
+    padding: 0 25px;
+    height: auto;
+}
+.Section1__Header-NavItem:nth-child(3){
+    display: flex;
+    align-items: center;
+    cursor: default;
+    position: relative;
+}
+.Section1__Header-NavItem img{
+    margin-left: 10px;
+    width: 14px;
+    height: 14px;
+}
+.Section1__Header-NavItem--Text{
+    position: relative;
+    text-decoration: none;
+    color: #000;
+    padding: 10px 0;
+}
+.Section1__Header-NavItem:hover .Section1__Header-NavItem--Text::before{
+    transform: scaleX(1);
+
+}
+.Section1__Header-NavItem--Text::before{
+    transform: scaleX(0);
+    content: "";
+    width: 100%;
+    height: 2px;
+    background:  #ff9500;
+    position: absolute;
+    bottom:  5px;
+    transform-origin: left;
+    transition: 0.3s ease;
+}
+.Section1__Header-NavItem:nth-child(3):hover .Section1__Header-DropMenu{
+    transform: scaleY(1);
+}
+.Section1__Header-DropMenu{
+    transform:scaleY(0);
+    transform-origin: top;
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s;
+    position: absolute;
+    min-width: 200px;
+    top: 100%;
+    overflow: hidden;
+    left: -3px;
+    row-gap: 5px;
+    padding: 25px 30px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 5%);
+}
+.Section1__Header-DropMenu>a{
+    text-decoration: none;
+    color: #000;
+    padding: 10px 0;
+    font-size: 14px;
+}
+.Section1__Header-DropMenu>a:hover{
+    color: #ff9500;
+}
+.Section1__Header-Button{
+    display: inline-flex;
+    text-decoration: none;
+    color: #fff;
+    background-color: #ff9500;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+}
+.Section1__Header-Button:hover{
+    background: #e68600;
+}
+.Section2__Banner{
+    min-height: 760px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background:#f7faff url(https://acaziasoftcom.s3.amazonaws.com/assets/images/bg-banner-home.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+.Section2__Banner-Item:nth-child(2){
+    max-width: 680px;
+}
+.Section2__Banner-Item:first-child{
+    max-width: 520px;
+    padding: 0 15px;
+}
+
+.Section2__Banner-Item>img{
+    transform: translate(0,15%)
+}
+.Section2__Banner-Title{
+    font-size: 48px;
+    color: #333;
+}
+.Section2__Banner-TypingTxt{
+    list-style: none;
+    font-size: 48px;
+    color: #ff9500;
+    font-weight: 600x;
+    line-height: 60px;
+    height: 60px;
+    overflow: hidden;
+}
+.Section2__Banner-TypingTxt li{
+    font-weight: 600;
+    line-height: 60px;
+    position: relative;
+    animation: slide 24s steps(4) infinite;
+    top: 0;
+}
+@keyframes slide {
+    100%{   
+        top: -240px;
+    }
+}
+
+.Section2__Banner-TypingTxt li::after{
+    content: "";
+    border-left: 4px solid #ff9500;
+    position: absolute;
+    left: 0;
+    background-image: linear-gradient(to right, rgb(247,250,255), rgb(218,238,255));
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    animation: typing 6s steps(11) infinite;
+}
+@keyframes typing {
+    40%, 60%{
+        left: 70%;
+        background-image: linear-gradient(rgb(233,244,255),rgb(218,238,255));
+    }
+    100% {
+        left: 0;
+    }
+}
+.Section2__Banner-Item p{
+    margin: 30px 0;
+    font-size: 16px;
+    color: #828282;
+}
+.Section2__Banner-Button{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    min-height: 0;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+.Button-Default{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px 10px 0;
+    padding: 15px 30px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 30px;
+    box-shadow: 0 4px 4px rgb(0 0 0 / 4%)
+}
+.Button-1{
+    width: 285px;
+    background:#ff9500;
+    border-color: #ff9500;
+}
+.Button-1:hover{
+    background:#e68600;
+    border-color: #e68600;
+}
+.Button-2{
+    color: #ff9500;
+    background:#fff;
+    border-color: #fff;
+}
+.Button-2:hover{
+    background: #ff9500;
+    color: #fff;
+}
