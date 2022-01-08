@@ -58,10 +58,12 @@
     text-decoration: none;
     color: #000;
     padding: 10px 0;
+    background: transparent;
+    height: auto;
+    width: auto;
 }
 .Section1__Header-NavItem:hover .Section1__Header-NavItem--Text::before{
     transform: scaleX(1);
-
 }
 .Section1__Header-NavItem--Text::before{
     transform: scaleX(0);
@@ -115,6 +117,28 @@
 .Section1__Header-Button:hover{
     background: #e68600;
 }
+.Section1__Header-MobileButton{
+    display: none;
+    position: absolute;
+    right: 15px;
+}
+span{
+    display: block;
+    position: absolute;
+    width: 25px;
+    height: 2px;
+    background:#000;
+    transition: 0.3s ease;
+}
+span:nth-child(2){
+    top: 0;
+}
+span:nth-child(3){
+    top: 50%;
+}
+span:nth-child(1){
+    bottom: 0;
+}
 .Section2__Banner{
     min-height: 760px;
     display: flex;
@@ -150,14 +174,22 @@
     font-weight: 600x;
     line-height: 60px;
     height: 60px;
+    width: fit-content;
     overflow: hidden;
 }
 .Section2__Banner-TypingTxt li{
+    display: block;
     font-weight: 600;
     line-height: 60px;
     position: relative;
-    animation: slide 24s steps(4) infinite;
+    white-space: nowrap;
+    width: fit-content;
+    border-right: 4px solid #ff9500;
+    animation: slide 12s steps(4) infinite,
+    blinking 1s steps(11) infinite ,
+    typing 3s steps(12) infinite;
     top: 0;
+    overflow: hidden;
 }
 @keyframes slide {
     100%{   
@@ -165,26 +197,16 @@
     }
 }
 
-.Section2__Banner-TypingTxt li::after{
-    content: "";
-    border-left: 4px solid #ff9500;
-    position: absolute;
-    left: 0;
-    background-image: linear-gradient(to right, rgb(247,250,255), rgb(218,238,255));
-    z-index: 10;
-    height: 100%;
-    width: 100%;
-    animation: typing 6s steps(11) infinite;
-}
 @keyframes typing {
-    40%, 60%{
-        left: 70%;
-        background-image: linear-gradient(rgb(233,244,255),rgb(218,238,255));
-    }
-    100% {
-        left: 0;
-    }
+    0%{width: 0;}
+    50%{width: 100%;}
+    100%{width: 0;}
 }
+@keyframes blinking{
+    from {border-right-color: transparent;}
+    to {border-right-color: #ff9500;}
+  }
+
 .Section2__Banner-Item p{
     margin: 30px 0;
     font-size: 16px;
@@ -227,4 +249,202 @@
 .Button-2:hover{
     background: #ff9500;
     color: #fff;
+}
+
+.test1{
+    transform: scaleX(0);
+    transition: 03s ease;
+}
+.test1:hover{
+    transform: scaleX(1);
+}
+.input.input-2{
+    display: none;
+}
+@media (max-width:1024px){
+    .Section1{
+        position: fixed;
+        top: 0;
+        padding: 15px 0;
+        height: 68px;
+        border-bottom: 1px solid #c8c7cc;
+        box-shadow: none;
+    }
+    .Section1__Container{
+        justify-content: flex-end;
+        width: 100%;
+    }
+    .Section1__Header:nth-child(1){
+        margin-right: auto;
+    }
+    .Section1__Header:nth-child(3){
+        order: 4;   
+        right: 0;
+        width: 25px;
+        height: 17px;
+        margin-left: 15px;
+    }
+    .Section1__Header:last-child{
+        display: flex;
+        align-items: center;
+        
+    }
+    .Section1__Header-Text{
+        display: none;
+    }
+    .Section1__Header-Navbar{
+        transform: scaleY(0);
+        position: absolute;
+        transform-origin: top;
+    }
+    .Section1__Header-Button{
+        font-size: 14px;
+        padding: 10px 25px;
+    }
+    .input{
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+        position: relative;
+    }
+    .input.input-2{
+        display: inline-flex;
+        position: relative;
+        height: 17px;
+        width: 25px;
+        z-index: 111;
+    }
+    .Section1__Header-MobileButton{
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        width: 25px;
+        height: 17px;
+        overflow: hidden;
+        cursor: pointer;
+    }
+    .input:checked~div>span:nth-child(2){
+        transform: rotate(45deg);
+        transform-origin: left;
+        width: 85.5%;
+    }
+    .input:checked~div>span:nth-child(3){
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    .input:checked~div>span:nth-child(1){
+        transform: rotate(-45deg);
+        width: 85.5%;
+        transform-origin: left;
+    }
+    .input:checked~.Section1__Header-Navbar{
+        transform: scaleY(1);
+        transition: 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        max-width: 1024px;
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        background: #fff;
+        top: 100%;
+        left: 0%;
+        border-top: 1px solid #c8c7cc;
+    }
+    .Section1__Header-NavItem{
+        display: inline-flex;
+    }
+    .Section1__Header-NavItem{
+        padding: 0 15px;
+    }
+    .Section1__Header-NavItem--Text{
+        padding: 15px 0;
+        width: 100%;
+    }
+    .Section1__Header-NavItem:nth-child(3){
+        justify-content: space-between;
+
+    }
+    .Section1__Header-NavItem:hover .Section1__Header-NavItem--Text::before{
+      transform: scale(0);
+    }
+    .Section1__Header-NavItem:nth-child(3):hover .Section1__Header-DropMenu{
+        transform: scale(0);
+    }
+    .Section1__Header-NavItem:nth-child(3):active .Section1__Header-NavItem--Text::before{
+        transform: scale(1);
+    }
+    .Section1__Header-NavItem:nth-child(3):active .Section1__Header-DropMenu{
+        transform: scale(1);
+        width: 100%;
+        box-shadow: unset;
+        display: flex;
+    }
+    .Section1__Header-NavItem:nth-child(3):active~.Section1__Header-NavItem{
+        transform: translateY(200%);
+    }
+    .Section1__Header-DropMenu{
+        position: absolute;
+        height: auto;
+        display: none;
+        flex-direction: column;
+        padding: 10px 30px;
+    }
+    .Section1__Header-NavItem img{
+        transform: rotate(-90deg);
+        transition: 0.3s ease;
+    }
+    .Section1__Header-NavItem:nth-child(3):active img{
+        transform: rotate(0);
+    }
+    .Section2__Banner{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin: 68px 0 0;
+        padding: 50px 0 0;
+    }
+    .Section2__Banner-Item:first-child{
+        margin-bottom: 15px;
+        width: 100%;
+    }
+    .Section2__Banner-Title{
+        font-size: 36px;
+        line-height: 45px;
+    }
+    .Section2__Banner-TypingTxt{
+        margin: 0 auto;
+        font-size: 36px;
+        line-height: 45px;
+    }
+    .Section2__Banner-Buttons{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .Section2__Banner-Item>p{
+        font-size: 14px;
+    }
+    .Button-Default{
+        font-size: 14px;
+        padding: 10px 25px;
+    }
+    .Button-1{
+        width: 260px;
+    }
+    .Section2__Banner-Item:nth-child(2){
+        max-width: 600px;
+        padding: 0 15px;
+        margin-bottom: 15px;
+    }
+    .Section2__Banner-Item>img{
+        transform: translate(0);
+        width: 100%;
+    }
 }
