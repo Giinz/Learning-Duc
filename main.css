@@ -462,3 +462,8 @@ span:nth-child(1){
         width: 100%;
     }
 }
+@media (max-width:475px){
+    .Section1__Header-Button{
+        display: none
+    }
+}
