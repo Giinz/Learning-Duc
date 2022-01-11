@@ -5,55 +5,58 @@
     font-family: 'Poppins',sans-serif;
     line-height: 1.15;
 }
-.Section1{
+.Header{
     position: fixed;
     width: 100%;
-    padding: 30px 0;
+    padding: 15px 0;
     display: block;
     box-shadow: 0 4px 4px rgb(0 0 0 / 4%);
     background: #fff;
     z-index: 9999;
+    
 }
-.Section1__Container{
+.Container{
+    max-width: 1170px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+.Header__container{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    max-width: 1170px;
-    padding: 0 15px;
-    margin:0 auto;
     min-height: auto;
 }
-.Section1__Header{
+.Header__item{
     display: block;
 }
-.Section1__Header-Navbar{
+.Header__item-Navbar{
     display: flex;
     align-items: center;
     flex-direction: row;
     list-style: none;
 }
-.Section1__Header-Text{
+.Header__item-text{
     font-size: 12px;
     color: #828282;
     margin: 0 10px 0 -20px;
 }
-.Section1__Header-NavItem{
+.Header__item-NavItem{
     padding: 0 25px;
     height: auto;
 }
-.Section1__Header-NavItem:nth-child(3){
+.Header__item-NavItem:nth-child(3){
     display: flex;
     align-items: center;
     cursor: default;
     position: relative;
 }
-.Section1__Header-NavItem img{
+.Header__item-NavItem img{
     margin-left: 10px;
     width: 14px;
     height: 14px;
 }
-.Section1__Header-NavItem--Text{
+.Header__item-NavItem--Text{
     position: relative;
     text-decoration: none;
     color: #000;
@@ -62,10 +65,10 @@
     height: auto;
     width: auto;
 }
-.Section1__Header-NavItem:hover .Section1__Header-NavItem--Text::before{
+.Header__item-NavItem:hover .Header__item-NavItem--Text::before{
     transform: scaleX(1);
 }
-.Section1__Header-NavItem--Text::before{
+.Header__item-NavItem--Text::before{
     transform: scaleX(0);
     content: "";
     width: 100%;
@@ -76,10 +79,10 @@
     transform-origin: left;
     transition: 0.3s ease;
 }
-.Section1__Header-NavItem:nth-child(3):hover .Section1__Header-DropMenu{
+.Header__item-NavItem:nth-child(3):hover .Header__item-DropMenu{
     transform: scaleY(1);
 }
-.Section1__Header-DropMenu{
+.Header__item-DropMenu{
     transform:scaleY(0);
     transform-origin: top;
     display: flex;
@@ -96,16 +99,16 @@
     background: #fff;
     box-shadow: 0 4px 12px rgb(0 0 0 / 5%);
 }
-.Section1__Header-DropMenu>a{
+.Header__item-DropMenu>a{
     text-decoration: none;
     color: #000;
     padding: 10px 0;
     font-size: 14px;
 }
-.Section1__Header-DropMenu>a:hover{
+.Header__item-DropMenu>a:hover{
     color: #ff9500;
 }
-.Section1__Header-Button{
+.Header__item-button{
     display: inline-flex;
     text-decoration: none;
     color: #fff;
@@ -114,10 +117,10 @@
     border-radius: 30px;
     font-weight: 600;
 }
-.Section1__Header-Button:hover{
+.Header__item-button:hover{
     background: #e68600;
 }
-.Section1__Header-MobileButton{
+.Header__item-MobileButton{
     display: none;
     position: absolute;
     right: 15px;
@@ -139,35 +142,39 @@ span:nth-child(3){
 span:nth-child(1){
     bottom: 0;
 }
-.Section2__Banner{
-    min-height: 760px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+.Banner{
     background:#f7faff url(https://acaziasoftcom.s3.amazonaws.com/assets/images/bg-banner-home.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
+    width: 100%;
 }
-.Section2__Banner-Item:nth-child(2){
+.Banner__container{
+    min-height: 760px;
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+}
+.Banner__container-item:nth-child(2){
     max-width: 680px;
 }
-.Section2__Banner-Item:first-child{
+.Banner__container-item:first-child{
     max-width: 520px;
     padding: 0 15px;
 }
 
-.Section2__Banner-Item>img{
-    transform: translate(0,15%)
+.Banner__container-item>img{
+    position: relative;
+    top: 3rem;
+    width: 100%;
 }
-.Section2__Banner-Title{
+.Banner__container-title{
     font-size: 48px;
     color: #333;
 }
-.Section2__Banner-TypingTxt{
+.Banner__container-typingTxt{
     list-style: none;
     font-size: 48px;
     color: #ff9500;
@@ -177,7 +184,7 @@ span:nth-child(1){
     width: fit-content;
     overflow: hidden;
 }
-.Section2__Banner-TypingTxt li{
+.Banner__container-typingTxt li{
     display: block;
     font-weight: 600;
     line-height: 60px;
@@ -207,12 +214,12 @@ span:nth-child(1){
     to {border-right-color: #ff9500;}
   }
 
-.Section2__Banner-Item p{
+.Banner__container-item p{
     margin: 30px 0;
     font-size: 16px;
     color: #828282;
 }
-.Section2__Banner-Button{
+.Banner__container-button{
     display: flex;
     height: 100%;
     width: 100%;
@@ -220,7 +227,7 @@ span:nth-child(1){
     flex-wrap: nowrap;
     justify-content: flex-start;
 }
-.Button-Default{
+.Button-default{
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -230,7 +237,8 @@ span:nth-child(1){
     color: #fff;
     font-weight: 600;
     border-radius: 30px;
-    box-shadow: 0 4px 4px rgb(0 0 0 / 4%)
+    box-shadow: 0 4px 4px rgb(0 0 0 / 4%);
+    transition: 0.3s ease;
 }
 .Button-1{
     width: 285px;
@@ -265,8 +273,39 @@ span:nth-child(1){
     display: none;
     opacity: 0;
 }
+@media (max-width:1200px) {
+   .Header__item-button{
+        padding: 10px 25px;
+        font-size: 14px;
+    }
+    .Header__item-NavItem{
+        padding: 0 15px;
+    }
+    .Banner__container-title{
+        font-size: 36px;
+    }
+    .Banner__container-item p{
+        font-size: 14px;
+    }
+    .Banner__container-typingTxt{
+        font-size: 36px;
+    }
+    .Banner__container-buttons{
+        display: flex;
+        flex-wrap: nowrap;
+        line-height: 1.15;
+        white-space: nowrap;
+    }
+    .Button-default{
+        font-size: 14px;
+        padding: 10px 25px;
+    }
+    .Button-1{
+        width: 260px;
+    }
+}
 @media (max-width:1024px){
-    .Section1{
+    .Header{
         position: fixed;
         top: 0;
         padding: 15px 0;
@@ -274,34 +313,34 @@ span:nth-child(1){
         border-bottom: 1px solid #c8c7cc;
         box-shadow: none;
     }
-    .Section1__Container{
+    .Header__container{
         justify-content: flex-end;
         width: 100%;
     }
-    .Section1__Header:nth-child(1){
+    .Header__item:nth-child(1){
         margin-right: auto;
     }
-    .Section1__Header:nth-child(3){
+    .Header__item:nth-child(3){
         order: 4;   
         right: 0;
         width: 25px;
         height: 17px;
         margin-left: 15px;
     }
-    .Section1__Header:last-child{
+    .Header__item:last-child{
         display: flex;
         align-items: center;
         
     }
-    .Section1__Header-Text{
+    .Header__item-text{
         display: none;
     }
-    .Section1__Header-Navbar{
+    .Header__item-Navbar{
         transform: scaleY(0);
         position: absolute;
         transform-origin: top;
     }
-    .Section1__Header-Button{
+    .Header__item-button{
         font-size: 14px;
         padding: 10px 25px;
     }
@@ -326,7 +365,7 @@ span:nth-child(1){
         z-index: 111;
         position: absolute;
     }
-    .Section1__Header-MobileButton{
+    .Header__item-MobileButton{
         display: inline-flex;
         flex-direction: column;
         align-items: center;
@@ -350,7 +389,7 @@ span:nth-child(1){
         width: 85.5%;
         transform-origin: left;
     }
-    .input:checked~.Section1__Header-Navbar{
+    .input:checked~.Header__item-Navbar{
         transform: scaleY(1);
         transition: 0.3s ease;
         display: flex;
@@ -365,56 +404,56 @@ span:nth-child(1){
         left: 0%;
         border-top: 1px solid #c8c7cc;
     }
-    .Section1__Header-NavItem{
+    .Header__item-NavItem{
         display: inline-flex;
     }
-    .Section1__Header-NavItem{
+    .Header__item-NavItem{
         padding: 0 15px;
     }
-    .Section1__Header-NavItem--Text{
+    .Header__item-NavItem--Text{
         padding: 15px 0;
         width: 100%;
     }
-    .Section1__Header-NavItem:nth-child(3){
+    .Header__item-NavItem:nth-child(3){
         justify-content: space-between;
 
     }
-    .Section1__Header-NavItem:hover .Section1__Header-NavItem--Text::before{
+    .Header__item-NavItem:hover .Header__item-NavItem--Text::before{
       transform: scale(0);
     }
-    .Section1__Header-NavItem:nth-child(3):hover .Section1__Header-DropMenu{
+    .Header__item-NavItem:nth-child(3):hover .Header__item-DropMenu{
         transform: scale(0);
     }
-    .input.DropMenu-Input:checked~.Section1__Header-NavItem--Text{
+    .input.DropMenu-Input:checked~.Header__item-NavItem--Text{
         color: #ff9500;
     }
-    .input.DropMenu-Input:checked~.Section1__Header-NavItem--Text::before{
+    .input.DropMenu-Input:checked~.Header__item-NavItem--Text::before{
         transform: scale(1);
     }
-    .input.DropMenu-Input:checked~.Section1__Header-DropMenu{
+    .input.DropMenu-Input:checked~.Header__item-DropMenu{
         transform: scale(1);
         width: 100%;
         box-shadow: unset;
         display: flex;
     }
-    .input.DropMenu-Input:checked~.Section1__Header-NavItem{
+    .input.DropMenu-Input:checked~.Header__item-NavItem{
         transform: translateY(200%);
     }
-    .Section1__Header-DropMenu{
+    .Header__item-DropMenu{
         position: absolute;
         height: auto;
         display: none;
         flex-direction: column;
         padding: 10px 30px;
     }
-    .Section1__Header-NavItem img{
+    .Header__item-NavItem img{
         transform: rotate(-90deg);
         transition: 0.3s ease;
     }
     .input.DropMenu-Input:checked~img{
         transform: rotate(0);
     }
-    .Section2__Banner{
+    .Banner__container{
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -423,42 +462,47 @@ span:nth-child(1){
         margin: 68px 0 0;
         padding: 50px 0 0;
     }
-    .Section2__Banner-Item:first-child{
+    .Banner__container-item:first-child{
         margin-bottom: 15px;
         width: 100%;
     }
-    .Section2__Banner-Title{
+    .Banner__container-title{
         font-size: 36px;
         line-height: 45px;
     }
-    .Section2__Banner-TypingTxt{
+    .Banner__container-typingTxt{
         margin: 0 auto;
         font-size: 36px;
         line-height: 45px;
     }
-    .Section2__Banner-Buttons{
+    .Banner__container-buttons{
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
     }
-    .Section2__Banner-Item>p{
+    .Banner__container-item>p{
         font-size: 14px;
     }
-    .Button-Default{
+    .Button-default{
         font-size: 14px;
         padding: 10px 25px;
     }
     .Button-1{
         width: 260px;
     }
-    .Section2__Banner-Item:nth-child(2){
+    .Banner__container-item:nth-child(2){
         max-width: 600px;
         padding: 0 15px;
         margin-bottom: 15px;
     }
-    .Section2__Banner-Item>img{
+    .Banner__container-item>img{
         transform: translate(0);
         width: 100%;
+    }
+}
+@media (max-width:475px){
+    .Header__item-button{
+        display: none
     }
 }
